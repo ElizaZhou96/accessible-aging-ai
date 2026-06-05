@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>🦄Accessible Aging AI🦄</title>
+
+  <meta name="description" content="Accessible Aging AI is an IJCAI-ECAI 2026 Diversity & Inclusion activity building an affinity community for accessibility, aging, and diverse human abilities in AI." />
+
+  <style>
+    :root {
+      --primary: #B5495B;
+      --primary-dark: #904840;
+      --primary-deep: #734338;
+      --secondary: #B5495B;
+      --accent: #EEA9A9;
+      --light: #FEDFE1;
+      --light-soft: #FFF7F2;
+      --text: #734338;
+      --muted: #8A5A50;
+      --border: #E8C8C4;
+      --white: #FFFFFF;
+      --shadow: rgba(115, 67, 56, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background:#FEDFE1;
+      color: #734338;
+      padding: 74px 20px 66px;
+      text-align: center;
+    }
+
+    header .tag {
+      display: inline-block;
+      background: #FFF;
+	  color: #B5495B;
+	  border: 1px solid #9CAF88;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    header h1 {
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin: 0 0 16px;
+      font-weight: 850;
+	  color: #B5495B;
+    }
+
+    header h2 {
+      font-size: clamp(1.15rem, 2.3vw, 1.75rem);
+      line-height: 1.35;
+      margin: 0 auto 26px;
+      max-width: 920px;
+      font-weight: 500;
+      opacity: 0.98;
+	  color: #904840;
+    }
+
+    header p {
+      max-width: 880px;
+      margin: 0 auto 32px;
+      font-size: 1.12rem;
+      opacity: 0.97;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+	  margin-bottom: 26px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #F8C3CD;
+      font-weight: 850;
+      border: 2px solid transparent;
+      box-shadow: 0 8px 20px rgba(115, 67, 56, 0.18);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      background: var(--secondary);
+      color: white;
+    }
+
+
+	
+	.button.secondary {
+	  background: rgba(255,255,255,0.72);
+	  color: #904840;
+	  border: 2px solid #B5495B;
+	  box-shadow: 0 6px 18px rgba(115, 67, 56, 0.08);
+	  backdrop-filter: blur(4px);
+	}
+
+	.button.secondary:hover {
+	  background: #FFF7F2;
+	  color: #734338;
+	  border-color: #904840;
+	  text-decoration: none;
+	}
+	
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    nav .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--primary-deep);
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 58px 20px;
+    }
+
+    section:nth-of-type(even) {
+      background: linear-gradient(180deg, var(--light) 0%, var(--light-soft) 100%);
+      max-width: none;
+    }
+
+    section:nth-of-type(even) .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 0 0 16px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      color: var(--primary-dark);
+      margin-top: 28px;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .lead {
+      font-size: 1.13rem;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .highlight {
+      background: #FFF7E7;
+      border-left: 5px solid #8F5A3C;
+      padding: 18px 22px;
+      border-radius: 10px;
+      margin: 26px 0;
+      font-size: 1.08rem;
+      color: var(--primary-deep);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 22px var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 0px;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 26px;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px var(--shadow);
+    }
+
+    .schedule th,
+    .schedule td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .schedule th {
+      background: var(--primary);
+      color: white;
+    }
+
+    .schedule tr:last-child td {
+      border-bottom: none;
+    }
+
+    .info-box {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 8px 18px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: 0 8px 22px var(--shadow);
+    }
+
+    .info-box strong {
+      color: var(--primary);
+    }
+
+    .organizer {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 26px;
+    }
+
+    .profile-card {
+      background: #FFF8F4;
+      border: 2px solid #EEA9A9;
+      color: #734338;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 26px rgba(115, 67, 56, 0.2);
+    }
+
+    .profile-card h3 {
+      color: #B5495B;
+      margin-top: 0;
+      font-size: 1.55rem;
+    }
+
+    .profile-card a {
+      color: #904840;
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #FFF7E7;
+      color: var(--primary-dark);
+      text-align: center;
+      padding: 34px 20px;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #8F5A3C;
+    }
+	
+	/* =========================================
+	   Organizer Profile Photo
+	========================================= */
+
+	.profile-photo {
+	  width: 100%;
+
+	  max-width: 320px;
+
+	  height: auto;
+
+	  display: block;
+
+	  margin: 0 auto 28px auto;
+
+	  border-radius: 20px;
+
+	  object-fit: cover;
+
+	  box-shadow:
+		0 10px 28px rgba(0,0,0,0.12);
+	}
+
+    @media (max-width: 850px) {
+      .grid,
+      .grid.two,
+      .organizer {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="tag">IJCAI-ECAI 2026 Diversity & Inclusion Activity</div>
+
+  <h1>Accessible Aging AI</h1>
+
+  <h2>Building a Community for Accessibility, Aging, and Inclusive AI</h2>
+
+  <p>
+     An experience-first community gathering that invites AI researchers to rethink technology through accessibility, aging, and diverse human interaction.
+  </p>
+
+   <p style="display:flex; align-items:center; justify-content:center; gap:24px;">
+    <span style="display:flex; align-items:center; gap:10px;"> <img src="images/date.png" style="width:25px;height:25px;"> <span><strong>Date:</strong> 16 August, 2026</span></span>
+	<span style="display:flex; align-items:center; gap:10px;"> <img src="images/time.png" style="width:25px;height:25px;"> <span><strong>Time:</strong> TBC</span></span>
+	<span style="display:flex; align-items:center; gap:10px;"> <img src="images/location.png" style="width:25px;height:25px;"> <span><strong>Location:</strong> TBC</span></span>
+
+   </p>
+
+  <div class="button-row">
+    <a class="button" href="#registration" style="display:inline-flex;align-items:center;gap:10px;"><img src="images/ticket.png" style="width:30px;height:30px;opacity:0.9;"> Join the Activity</a>
+	<a class="button secondary" href="#activities" style="display:inline-flex;align-items:center;gap:10px;"><img src="images/trip.png" style="width:30px;height:30px;opacity:0.9;"> Explore the Experience</a>
+  </div>
+	 	 
+  <p>
+    <em>Accessibility is not only a technical challenge, but a way of seeing, communicating, and designing shared futures.</em>
+  </p>
+  
+</header>
+
+<nav>
+  <div class="nav-inner">
+
+    <!-- My Logo -->
+    <div class="nav-logo">
+	<img src="images/my_logo.png" alt="IJCAI Logo">
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#why">Why It Matters</a>
+      <a href="#activities">Activities</a>
+      <a href="#audience">Who Is This For?</a>
+      <a href="#program">Activity Journey</a>
+      <a href="#organizer">Organizer</a>
+      <a href="#registration">Join</a>
+    </div>
+
+    <!-- IJCAI Logo -->
+    <div class="nav-logo">
+      <a href="https://2026.ijcai.org/" target="_blank">
+		<img src="images/ijcai26_logo.png" alt="IJCAI Logo">
+	  </a>
+    </div>
+
+  </div>
+</nav>
+
+<section id="about">
+  <h2 class="section-title">About the Activity</h2>
+
+  <p class="lead">
+    Accessible Aging AI is an experience-first Diversity & Inclusion activity at <a href="https://2026.ijcai.org/" target="_blank">IJCAI-ECAI 2026</a>. 
+	It aims to build a welcoming community around accessibility, aging, and diverse human abilities in artificial intelligence.
+  </p>
+
+
+  <p>
+    This activity is not designed as a conventional technical workshop, nor is it limited to discussing the latest AI methods for accessibility and aging. Instead, it begins from a more fundamental question: 
+  </p>
+	  <p class="question">
+		  <strong>
+			What assumptions about human ability are built into the way we design,
+			evaluate, communicate, and deploy AI?
+		  </strong>
+		</p>
+
+  <p>
+    Through hands-on accessibility experiences, participants will be invited to briefly step outside the perspective of the "typical" user and engage with interaction realities that many disabled people and older adults face in everyday life. These experiences are intended not as simulations of another person's full lived experience, but as starting points for empathy, reflection, and more responsible design thinking.
+  </p>
+
+  <p>
+    The goal is to encourage deeper reflection across the AI community. We hope participants will increase awareness of accessibility & aging and start with several insights they can bring to their research, teaching, paper writing, figure design, interface development, public communication, and daily life.
+  </p>
+
+  <div class="highlight">
+    Accessible Aging AI starts from hands-on interaction, not from technology. By encountering barriers first, participants are encouraged to rethink what inclusive AI should mean from the perspective of research questions, datasets, evaluation, visualization, communication, and everyday design choices.
+  </div>
+</section>
+
+
+<section id="why">
+  <div class="section-inner">
+    <h2 class="section-title">Why Accessibility and Aging Matter for AI</h2>
+
+    <p class="lead">
+      Accessibility and aging are not niche concerns. They are central challenges for inclusive and human-centered AI.
+    </p>
+
+    <p>
+      According to the World Health Organization, more than <strong>1.3 billion</strong> people worldwide live with significant disabilities <a href="https://www.who.int/health-topics/disability" target="_blank">[1]</a>, and more than <strong>2.5 billion</strong> people need one or more assistive products <a href="https://www.who.int/news-room/fact-sheets/detail/assistive-technology" target="_blank">[2]</a>. With an ageing global population and a rise in noncommunicable diseases, an estimated <strong>3.5 billion</strong> people will need assistive technology by 2050. A substantial proportion of older adults experience disability, sensory change, cognitive change, or interaction barriers. As AI becomes embedded into everyday infrastructure, the AI community must design systems that work across diverse human abilities.
+    </p>
+
+    <p>
+      Accessibility-related research is often distributed across assistive technology, healthcare AI, human-computer interaction, multimodal AI, robotics, inclusive design, and responsible AI. <strong>Accessible Aging AI</strong> brings these perspectives together in IJCAI-ECAI 2026 Diversity & Inclusion Activity.
+    </p>
+
+    <div class="grid three">
+      <div class="card">
+        <div class="icon"><img src="images/technology.png" alt="Societal Relevance"></div>
+        <h3>Societal Relevance</h3>
+        <p>
+          AI systems are increasingly playing a bigger role in services, communication, healthcare, education, and public participation.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon"><img src="images/love.png" alt="Diverse Abilities"></div>
+        <h3>Diverse Abilities</h3>
+        <p>
+          Human interaction varies across vision, hearing, speech, cognition, motor control, age, culture, and lived experience.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon"><img src="images/community.png" alt="Community Building"></div>
+        <h3>Community Building</h3>
+        <p>
+          Inclusive AI requires interdisciplinary collaboration between AI researchers, accessibility experts, designers, users, and advocates.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activities">
+
+  <h2 class="section-title">What to Expect</h2>
+
+  <p class="lead">
+    The activity combines accessibility experiences, collaborative design discussions and community reflection.
+  </p>
+
+
+  <!-- Row 1 -->
+  <div class="feature-row">
+
+    <div class="card">
+
+      <h3>Embodied Accessibility Experiences</h3>
+
+      <p>
+        Participants will engage in hands-on, low-tech interaction challenges that uncover how accessibility barriers emerge across vision, hearing, mobility, communication, aging, and neurodiverse experiences. 
+      </p>
+
+      <ul>
+        <li>Navigating limited or distorted visual conditions</li>
+        <li>Communicating without speech or reliable audio</li>
+		<li>Experiencing cognitive overload and fragmented attention</li>
+        <li>Interacting under mobility and fine-motor constraints</li>
+      </ul>
+    </div>
+
+    <div class="feature-image">
+      <img src="images/experience.png" alt="">
+    </div>
+
+  </div>
+
+
+  <!-- Row 2 -->
+  <div class="feature-row reverse">
+
+    <div class="card">
+
+      <h3>Inclusive AI Futures Lab</h3>
+
+      <p>
+        Building on their embodied experiences, participants will work in small groups to imagine more inclusive AI systems, interfaces, and interaction futures. The activity encourages imaginative thinking beyond technical constraints, inviting participants to design unconventional or impossible ideas that rethink accessibility from scratch.
+      </p>
+
+      <ul>
+        <li>Reimagining accessibility-first AI systems </li>
+        <li>Designing future interactions for aging societies</li>
+        <li>Challenging assumptions about "normal" users</li>
+		<li>Developing "impossible but meaningful" ideas</li>
+      </ul>
+    </div>
+
+    <div class="feature-image">
+      <img src="images/design.png" alt=""  style="width: 60%; height: auto;">
+    </div>
+
+  </div>
+
+
+  <!-- Row 3 -->
+  <div class="feature-row">
+
+    <div class="card">
+
+      <h3>Accessibility Futures Showcase</h3>
+	  
+      <p>
+        Each group will share their reflections, adventurous concepts, and future visions with the community. The showcase creates a space for collective discussion, creative exchange, and critical reflection on how AI systems can better support diverse human experiences.
+      </p>
+
+      <ul>
+        <li>Sharing experiential reflections and insights  </li>
+        <li>Discussing inclusive interaction futures  </li>
+        <li>Reflecting on ethical and societal implications</li>
+		<li>Building collective imagination around accessible and aging-aware AI</li>
+      </ul>
+    </div>
+
+    <div class="feature-image">
+      <img src="images/presentation.png" alt="">
+    </div>
+
+  </div>
+
+</section>
+
+<section id="audience">
+  <div class="section-inner">
+    <h2 class="section-title">Who Is This For?</h2>
+
+    <p class="lead">
+      Accessible Aging AI welcomes participants interested in accessibility, aging, interaction design, AI systems, and inclusive futures. Prior expertise in accessibility research is not required.
+    </p>
+
+    <div class="grid two">
+      <div class="card">
+        <h3><img src="images/learn.png" style="width: 5%; height: auto;"> Academic and Research Communities </h3>
+        <ul>
+          <li>Researchers exploring inclusive and human-centered AI  </li>
+          <li>Students interested in accessibility, aging, and interaction design  </li>
+          <li>Scholars working across HCI, multimodal AI, robotics, or digital health  </li>
+          <li>Early-career researchers seeking interdisciplinary collaboration </li>
+          <li>People curious about embodied and participatory design approaches</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><img src="images/work.png" style="width: 5%; height: auto;"> Designers, Practitioners, and Advocates</h3>
+        <ul>
+          <li>Designers and developers interested in inclusive interaction</li>
+          <li>Accessibility advocates, rehabilitation therapists, and assistive technology practitioners</li>
+          <li>Industry practitioners building AI products and platforms</li>
+          <li>Attendees interested in responsible and inclusive AI futures</li>
+          <li>People curious about accessibility and diverse human experiences</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight">
+      Whether you are deeply involved in accessibility research or encountering these questions for the first time, the activity invites curiosity, creativity, and shared reflection.
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <h2 class="section-title">Diversity & Inclusion Activity Journey</h2>
+
+  <p class="lead">
+    The activity is designed as a three-hour interactive journey combining embodied accessibility experiences, inclusive design activities, and collective reflection on inclusive AI futures.
+  </p>
+
+  <table class="schedule">
+    <thead>
+      <tr>
+        <th>Duration</th>
+        <th>Session</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>10 min</td>
+        <td><strong>Welcome & Community Framing</strong></td>
+        <td>
+          Introduction to the goals of Accessible Aging AI and an overview of accessibility, aging, and inclusive AI futures.
+        </td>
+      </tr>
+
+      <tr>
+        <td>70 min</td>
+        <td><strong>Embodied Accessibility Experiences</strong></td>
+        <td>
+          Participants engage in hands-on, low-tech interaction challenges exploring visual, auditory, motor, cognitive, neurodiverse, and aging-related accessibility conditions.
+        </td>
+      </tr>
+
+      <tr>
+        <td>20 min</td>
+        <td><strong>Coffee Break & Informal Conversations</strong></td>
+        <td>
+          Open discussion, informal exchange, and time for participants to reflect on their experiences and observations.
+        </td>
+      </tr>
+
+      <tr>
+        <td>40 min</td>
+        <td><strong>Inclusive AI Futures Lab</strong></td>
+        <td>
+          Small-group design activities exploring inclusive AI systems, multimodal interactions, accessibility-first interfaces, and aging-aware technological futures. 
+        </td>
+      </tr>
+
+      <tr>
+        <td>30 min</td>
+        <td><strong>Accessibility Futures Showcase</strong></td>
+        <td>
+		  Each group shares reflections, design ideas, and possible future directions.
+        </td>
+      </tr>
+
+      <tr>
+        <td>10 min</td>
+        <td><strong>Closing Remarks & Community Photo</strong></td>
+        <td>
+          Summary of key takeaways and discussion of future opportunities for collaboration and community-building around accessible and aging-aware AI.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="goals">
+  <div class="section-inner">
+    <h2 class="section-title">Community Goals</h2>
+
+    <p class="lead">
+      Accessible Aging AI aims to establish a sustainable community for rethinking how AI systems can support diverse bodies, minds, abilities, and aging experiences.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Grow an Inclusive Community</h3>
+        <p>
+          Build a welcoming space where researchers, practitioners, students, and community members can connect across disciplines and lived experiences.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Make Accessibility Visible</h3>
+        <p>
+          Help the AI community recognize accessibility not as a minority concern, but as a central question in how people encounter, use, trust, and participate in AI-mediated systems.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Center Diverse Human Experiences</h3>
+        <p>
+          Bring attention to aging, disability, cognitive and neurodiversity, communication differences, sensory experiences, mobility needs, and situational barriers in AI design and deployment.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Inspire Accessibility-First Design</h3>
+        <p>
+          Encourage AI systems, interfaces, datasets, evaluations, and deployment practices that treat accessibility as a starting point.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Promote Interdisciplinary Exchange</h3>
+        <p>
+          Connect perspectives from AI, HCI, accessibility research, assistive technology, robotics, healthcare, design, ethics, policy, and community practice.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Explore Future Collaborations</h3>
+        <p>
+          Identify opportunities for future workshops, tutorials, mentorship, shared resources, research collaborations, and long-term inclusive AI initiatives.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="registration">
+  <h2 class="section-title">Join the Experience</h2>
+
+  <p class="lead">
+    Accessible Aging AI welcomes IJCAI-ECAI 2026 attendees interested in accessibility, aging, inclusive interaction, and future-facing AI communities.
+  </p>
+
+  <div class="info-box">
+    <strong>Event Format</strong>
+    <span>Interactive Accessibility & AI Activity</span>
+
+    <strong>Date</strong>
+    <span>August 16, 2026</span>
+
+    <strong>Expected Attendance</strong>
+    <span>Small-group interactive participation (40-60 attendees)</span>
+
+    <strong>Participation Form</strong>
+    <span><em>Registration details will be shared soon</em></span>
+  </div>
+
+  <p>
+    Participation will be organized to support meaningful interaction, small-group collaboration, and a welcoming interdisciplinary environment.
+	If interest exceeds available capacity, registration may be managed to maintain balanced participation across research areas, career stages, and backgrounds.
+  </p>
+</section>
+
+<section id="organizer">
+  <div class="section-inner">
+    <h2 class="section-title">Meet the Organizer</h2>
+
+    <div class="organizer">
+      <div class="profile-card">
+	  
+	    <img class="profile-photo" src="images/Yutong.jpg" alt="Dr. Yutong Zhou" style="width: 70%; height: auto;"/>
+	  
+        <h3>Dr. Yutong Zhou</h3>
+        <p>
+          Postdoctoral Researcher<br />
+		  <em>Multimodal & Human-Centered AI</em><br />
+          Leibniz Centre for Agricultural Landscape Research, Germany
+        </p>
+        <p>
+          Email:<br />
+          <a href="mailto:yutong.zhou@zalf.de">yutong.zhou@zalf.de</a>
+        </p>
+        <p>
+          Homepage:<br />
+          <a href="https://elizazhou96.github.io/" target="_blank">elizazhou96.github.io</a>
+        </p>
+      </div>
+
+      <div>
+		
+		<h3>Research Profile</h3>
+
+        <p>
+          Yutong Zhou is a postdoctoral researcher working at the intersection of multimodal AI, human-centered interaction, and inclusive AI systems.
+		  Her research explores how AI technologies can better support diverse human experiences across communication, accessibility, reasoning, and real-world interaction contexts.
+        </p>
+
+        <p>
+          Through her research, teaching, and community activities, she has become increasingly interested in how accessibility, aging, and interaction diversity are addressed within AI research communities.
+		  <strong>Accessible Aging AI</strong> is created to support more inclusive, interdisciplinary, and community-centered conversations around the future of AI systems and human participation.
+        </p>
+
+        <h3>Selected Organizing & Community Activities</h3>
+
+        <ul>
+          <li>
+            Lead Organizer, <em><a href="https://aim4dk.vercel.app/" target="_blank">AI Modeling for Disappearing Knowledge</a></em>,
+            IJCAI-ECAI 2026 Workshop
+          </li>
+          <li>
+            Lead Organizer, <em><a href="https://empai26.vercel.app/" target="_blank">Empathic AI: Face, Gesture, and Accessibility Technologies</a></em>, IEEE FG 2026 Workshop
+          </li>
+          <li>
+            Organizer and Instructor, <em><a href="https://i2i-2025.vercel.app/" target="_blank">Insight to Impact: Multimodal AI for a More Accessible World</a></em>, ECAI 2025 Tutorial
+          </li>
+        </ul>
+
+        <h3>Research Interests</h3>
+
+        <p>
+          Her broader interests include accessible and inclusive AI systems, multimodal interaction, empathic AI, trustworthy AI, human-centered design, and interdisciplinary AI community building.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Join the Community</h2>
+
+  <p class="lead">
+    Accessible Aging AI invites people who want to reimagine how AI systems can support diverse bodies, minds, abilities, and aging experiences.
+  </p>
+
+  <div class="highlight">
+    Let's build a more accessible, inclusive, and human-centered future for AI.
+  </div>
+
+  <p>
+    Questions or collaboration ideas?<br />Please contact
+    <a href="mailto:yutong.zhou@zalf.de">yutong.zhou@zalf.de</a>.
+  </p>
+</section>
+
+<footer>
+  <p>
+    Accessible Aging AI · IJCAI-ECAI 2026 Diversity & Inclusion Activity
+  </p>
+  <p>
+    Organized by
+    <a href="https://elizazhou96.github.io/" target="_blank">Yutong Zhou</a>
+  </p>
+</footer>
+
+</body>
+</html>
