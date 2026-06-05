@@ -381,6 +381,34 @@
 	    padding: 0;
 	  }
 	}
+
+	@media (max-width: 850px) {
+	  nav {
+	    position: sticky !important;
+	    top: 0;
+	    z-index: 999;
+	  }
+	}
+	
+	@media (max-width: 650px) {
+	  .schedule td {
+	    border-bottom: 1px solid var(--border) !important;
+	    padding: 8px 0;
+	    text-align: left;
+	  }
+	
+	  .schedule td:last-child {
+	    border-bottom: none !important;
+	  }
+	
+	  .schedule tr:last-child td {
+	    border-bottom: 1px solid var(--border) !important;
+	  }
+	
+	  .schedule tr:last-child td:last-child {
+	    border-bottom: none !important;
+	  }
+	}
   </style>
 </head>
 
