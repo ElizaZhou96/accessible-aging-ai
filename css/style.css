@@ -1,4 +1,3 @@
-
 /* =========================================
    Global Reset
 ========================================= */
@@ -11,36 +10,25 @@
 
 
 /* =========================================
-   Body Styling
+   Body
 ========================================= */
 
 body {
-  font-family: Arial, sans-serif;
-
-  background-color: #f5f7fa;
-
-  color: #222;
-
-  line-height: 1.6;
-
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #734338;
+  line-height: 1.65;
   padding: 0;
 }
 
 
 /* =========================================
-   Grid Layout
+   General Media
 ========================================= */
 
-.grid.three {
-  display: grid;
-
-  /* Responsive 3-column layout */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  );
-
-  gap: 24px;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 
@@ -50,122 +38,94 @@ body {
 
 .card {
   background: #ffffff;
-
-  padding: 32px 24px;
-
-  border-radius: 18px;
-
-  /* Soft shadow for depth */
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.08);
-
-  /* Smooth hover animation */
+  padding: 36px;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-
-/* =========================================
-   Card Hover Effect
-========================================= */
-
 .card:hover {
-  /* Slight floating effect */
   transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
 
-  /* Stronger shadow on hover */
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.12);
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #904840;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
 }
 
 
 /* =========================================
-   Icon Container
+   Icon
 ========================================= */
 
 .icon {
   width: 56px;
   height: 56px;
-
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-/* =========================================
-   Icon Image
-========================================= */
-
 .icon img {
   width: 40px;
   height: 40px;
-
   object-fit: contain;
-
   display: block;
 }
 
 
 /* =========================================
-   Card Title
+   Grid Layout
 ========================================= */
 
-.card h3 {
-  font-size: 1.3rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
 
-  font-weight: 600;
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
-  margin-bottom: 14px;
-
-  color: #111827;
+.grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 
 /* =========================================
-   Card Paragraph
+   Typography Helpers
 ========================================= */
 
-.card p {
-  font-size: 1rem;
-
-  color: #4b5563;
-
-  line-height: 1.7;
-  
+.section-title {
   margin-bottom: 10px;
 }
 
-
-/* =========================================
-   Responsive Design
-========================================= */
-
-/* Tablet */
-@media (max-width: 900px) {
-  body {
-    padding: 24px;
-  }
+.lead {
+  margin-bottom: 52px;
+  max-width: 760px;
 }
 
-
-/* Mobile */
-@media (max-width: 600px) {
-
-  .card {
-    padding: 24px 20px;
-  }
-
-  .card h3 {
-    font-size: 1.15rem;
-  }
-
-  .card p {
-    font-size: 0.95rem;
-  }
+.question {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 30px auto;
+  max-width: 820px;
 }
 
 
@@ -175,18 +135,11 @@ body {
 
 .feature-row {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 28px;
-
   align-items: center;
-
   margin-bottom: 28px;
 }
-
-
-/* Reverse Layout */
 
 .feature-row.reverse {
   direction: rtl;
@@ -209,75 +162,11 @@ body {
 
 .feature-image img {
   width: 70%;
-
   height: auto;
-
   display: block;
-  
   margin: 0 auto;
 }
 
-
-/* =========================================
-   Card
-========================================= */
-
-.card {
-  background: white;
-
-  padding: 36px;
-
-  border-radius: 24px;
-
-  box-shadow:
-    0 10px 28px rgba(0,0,0,0.08);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.12);
-}
-
-
-/* =========================================
-   Responsive
-========================================= */
-
-@media (max-width: 900px) {
-
-  .feature-row,
-  .feature-row.reverse {
-
-    grid-template-columns: 1fr;
-
-    direction: ltr;
-
-    gap: 24px;
-  }
-
-  .feature-image img {
-    width: 70%;
-    height: auto;
-  }
-}
-
-.section-title {
-  margin-bottom: 10px;
-}
-
-.lead {
-  margin-bottom: 52px;
-
-  max-width: 760px;
-
-  color: #4b5563;
-}
 
 /* =========================================
    Navigation
@@ -292,13 +181,10 @@ nav {
   backdrop-filter: blur(14px);
 }
 
-
-/* Navigation Container */
-
 nav .nav-inner {
-  max-width: 1120px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 12px 32px;
 
   display: flex;
   align-items: center;
@@ -307,18 +193,13 @@ nav .nav-inner {
   gap: 24px;
 }
 
-
-/* Left Navigation Links */
-
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
-
-
-/* Navigation Links */
 
 .nav-links a {
   color: var(--primary-deep);
@@ -342,9 +223,6 @@ nav .nav-inner {
   transform: translateY(-1px);
 }
 
-
-/* Right Logo */
-
 .nav-logo {
   display: flex;
   align-items: center;
@@ -356,9 +234,6 @@ nav .nav-inner {
   width: auto;
   display: block;
 }
-
-
-/* Optional: make logo slightly interactive */
 
 .nav-logo a {
   display: flex;
@@ -372,10 +247,149 @@ nav .nav-inner {
 
 
 /* =========================================
-   Responsive Navigation
+   Refined Section Width
+========================================= */
+
+section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 64px 32px;
+}
+
+section:nth-of-type(even) {
+  max-width: none;
+}
+
+section:nth-of-type(even) .section-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+
+/* =========================================
+   Schedule Table
+========================================= */
+
+.schedule-wrap {
+  width: 100%;
+  margin-top: 26px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule {
+  width: 100%;
+  min-width: 760px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+
+/* =========================================
+   Organizer Profile Photo
+========================================= */
+
+.profile-photo {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  display: block;
+  margin: 0 auto 28px auto;
+
+  border-radius: 20px;
+  object-fit: cover;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   Hero Event Meta
+========================================= */
+
+.event-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.event-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.event-meta img {
+  width: 25px;
+  height: 25px;
+}
+
+
+/* =========================================
+   Tablet
 ========================================= */
 
 @media (max-width: 850px) {
+  body {
+    padding: 0;
+  }
+
+  header {
+    padding: 56px 20px 48px;
+  }
+
+  section {
+    max-width: none;
+    width: 100%;
+    padding: 48px 20px;
+  }
+
+  section:nth-of-type(even) {
+    width: 100%;
+    max-width: none;
+  }
+
+  section:nth-of-type(even) .section-inner {
+    max-width: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .lead {
+    margin-bottom: 32px;
+  }
+
+  .grid,
+  .grid.two,
+  .grid.three,
+  .organizer {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-row,
+  .feature-row.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 22px;
+    margin-bottom: 36px;
+  }
+
+  .feature-image img {
+    width: 82%;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .info-box {
+    grid-template-columns: 1fr;
+  }
+
   nav {
     position: static;
   }
@@ -384,6 +398,7 @@ nav .nav-inner {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    padding: 12px 20px;
   }
 
   .nav-links {
@@ -395,9 +410,121 @@ nav .nav-inner {
   }
 }
 
-.question {
-  text-align: center;
-  font-size: 1.1rem;
-  margin: 30px auto;
-  max-width: 1820px;
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 650px) {
+  h2.section-title {
+    font-size: 1.65rem;
+  }
+
+  header h1 {
+    font-size: 2.35rem;
+  }
+
+  header h2 {
+    font-size: 1.15rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .event-meta {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .nav-logo img {
+    height: 28px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    padding: 6px 9px;
+  }
+
+  .highlight {
+    padding: 16px 18px;
+    font-size: 1rem;
+  }
+
+  .feature-image img {
+    width: 86%;
+  }
+
+  .profile-photo {
+    max-width: 260px;
+  }
+
+  /* Mobile-friendly schedule cards */
+  .schedule,
+  .schedule thead,
+  .schedule tbody,
+  .schedule tr,
+  .schedule th,
+  .schedule td {
+    display: block;
+    width: 100%;
+  }
+
+  .schedule {
+    min-width: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .schedule thead {
+    display: none;
+  }
+
+  .schedule tr {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 22px var(--shadow);
+  }
+
+  .schedule td {
+    border-bottom: none;
+    padding: 6px 0;
+    text-align: left;
+  }
+
+  .schedule td:first-child {
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 0.95rem;
+  }
+
+  .schedule td:nth-child(2) {
+    font-size: 1.05rem;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+  }
+
+  .schedule td:nth-child(3) {
+    color: var(--muted);
+  }
 }
