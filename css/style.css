@@ -391,7 +391,9 @@ section:nth-of-type(even) .section-inner {
   }
 
   nav {
-    position: static;
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
 
   nav .nav-inner {
@@ -507,8 +509,8 @@ section:nth-of-type(even) .section-inner {
   }
 
   .schedule td {
-    border-bottom: none;
-    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
     text-align: left;
   }
 
@@ -527,4 +529,8 @@ section:nth-of-type(even) .section-inner {
   .schedule td:nth-child(3) {
     color: var(--muted);
   }
+
+ .schedule td:last-child {
+  border-bottom: none;
+}
 }
