@@ -160,9 +160,9 @@
     }
 
     section {
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 58px 20px;
+      padding: 64px 32px;
     }
 
     section:nth-of-type(even) {
@@ -171,8 +171,9 @@
     }
 
     section:nth-of-type(even) .section-inner {
-      max-width: 1120px;
+      max-width: 1240px;
       margin: 0 auto;
+	  padding: 0 32px;
     }
 
     h2.section-title {
@@ -362,6 +363,24 @@
         position: static;
       }
     }
+	@media (max-width: 850px) {
+	  section {
+	    max-width: none;
+	    width: 100%;
+	    padding: 48px 20px;
+	  }
+	
+	  section:nth-of-type(even) {
+	    width: 100%;
+	    max-width: none;
+	  }
+	
+	  section:nth-of-type(even) .section-inner {
+	    max-width: none;
+	    width: 100%;
+	    padding: 0;
+	  }
+	}
   </style>
 </head>
 
@@ -378,12 +397,22 @@
      An experience-first community gathering that invites AI researchers to rethink technology through accessibility, aging, and diverse human interaction.
   </p>
 
-   <p style="display:flex; align-items:center; justify-content:center; gap:24px;">
-    <span style="display:flex; align-items:center; gap:10px;"> <img src="images/date.png" style="width:25px;height:25px;"> <span><strong>Date:</strong> 16 August, 2026</span></span>
-	<span style="display:flex; align-items:center; gap:10px;"> <img src="images/time.png" style="width:25px;height:25px;"> <span><strong>Time:</strong> TBC</span></span>
-	<span style="display:flex; align-items:center; gap:10px;"> <img src="images/location.png" style="width:25px;height:25px;"> <span><strong>Location:</strong> TBC</span></span>
-
-   </p>
+  <p class="event-meta">
+	  <span>
+	    <img src="images/date.png" alt="">
+	    <span><strong>Date:</strong> 16 August, 2026</span>
+	  </span>
+	
+	  <span>
+	    <img src="images/time.png" alt="">
+	    <span><strong>Time:</strong> TBC</span>
+	  </span>
+	
+	  <span>
+	    <img src="images/location.png" alt="">
+	    <span><strong>Location:</strong> TBC</span>
+	  </span>
+	</p>
 
   <div class="button-row">
     <a class="button" href="#registration" style="display:inline-flex;align-items:center;gap:10px;"><img src="images/ticket.png" style="width:30px;height:30px;opacity:0.9;"> Join the Activity</a>
@@ -635,7 +664,8 @@
     The activity is designed as a three-hour interactive journey combining embodied accessibility experiences, inclusive design activities, and collective reflection on inclusive AI futures.
   </p>
 
-  <table class="schedule">
+  <div class="schedule-wrap">
+	<table class="schedule">
     <thead>
       <tr>
         <th>Duration</th>
@@ -694,6 +724,7 @@
       </tr>
     </tbody>
   </table>
+</div>
 </section>
 
 <section id="goals">
