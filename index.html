@@ -92,6 +92,56 @@
       opacity: 0.97;
     }
 
+	/* =========================================
+	   Event Countdown
+	========================================= */
+	
+	.countdown-wrapper {
+	  margin: 26px auto 30px;
+	  text-align: center;
+	}
+	
+	.countdown-label {
+	  margin-bottom: 12px;
+	  font-size: 0.95rem;
+	  font-weight: 700;
+	  color: var(--primary-dark);
+	  letter-spacing: 0.04em;
+	}
+	
+	.countdown {
+	  display: flex;
+	  justify-content: center;
+	  gap: 12px;
+	  flex-wrap: wrap;
+	}
+	
+	.countdown-item {
+	  min-width: 88px;
+	  padding: 12px 16px;
+	  background: rgba(255, 255, 255, 0.78);
+	  border: 1px solid var(--border);
+	  border-radius: 14px;
+	  box-shadow: 0 6px 18px var(--shadow);
+	}
+	
+	.countdown-item span {
+	  display: block;
+	  font-size: 1.65rem;
+	  line-height: 1.2;
+	  font-weight: 850;
+	  color: var(--primary);
+	}
+	
+	.countdown-item small {
+	  display: block;
+	  margin-top: 4px;
+	  font-size: 0.75rem;
+	  color: var(--muted);
+	  text-transform: uppercase;
+	  letter-spacing: 0.05em;
+	}
+	  
     .button-row {
       display: flex;
       gap: 14px;
@@ -456,6 +506,33 @@
 	  </span>
 	</p>
 
+  <div class="countdown-wrapper">
+	  <div class="countdown-label">Activity starts in</div>
+	
+	  <div id="countdown" class="countdown">
+	    <div class="countdown-item">
+	      <span id="days">00</span>
+	      <small>Days</small>
+	    </div>
+	
+	    <div class="countdown-item">
+	      <span id="hours">00</span>
+	      <small>Hours</small>
+	    </div>
+	
+	    <div class="countdown-item">
+	      <span id="minutes">00</span>
+	      <small>Minutes</small>
+	    </div>
+	
+	    <div class="countdown-item">
+	      <span id="seconds">00</span>
+	      <small>Seconds</small>
+	    </div>
+	  </div>
+	</div>
+	
+	
   <div class="button-row">
     <a class="button" href="#registration" style="display:inline-flex;align-items:center;gap:10px;"><img src="images/ticket.png" style="width:30px;height:30px;opacity:0.9;"> Join the Activity</a>
 	<a class="button secondary" href="#activities" style="display:inline-flex;align-items:center;gap:10px;"><img src="images/trip.png" style="width:30px;height:30px;opacity:0.9;"> Explore the Experience</a>
@@ -952,6 +1029,48 @@
   </p>
 </footer>
 
+<!-- Countdown -->
+<script>
+  const eventDate = new Date("2026-08-16T09:00:00+02:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const distance = eventDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("countdown").innerHTML =
+        "<strong>The activity has started!</strong>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (distance % (1000 * 60)) / 1000
+    );
+
+    document.getElementById("days").textContent =
+      String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+      String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+      String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+      String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+	
 <script>
     (function(d){
       var s = d.createElement("script");
